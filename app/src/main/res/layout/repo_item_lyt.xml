@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/avtar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:src="@drawable/avtar_placeolder"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:textColor="@color/grey_black"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintLeft_toRightOf="@+id/avtar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="xingshaocheng" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/grey_black"
+            android:textSize="@dimen/textSize_20sp"
+            app:layout_constraintLeft_toRightOf="@id/avtar"
+            app:layout_constraintTop_toBottomOf="@+id/author"
+            tools:text="architect-awesome" />
+
+        <TextView
+            android:id="@+id/desc_with_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:textColor="@color/grey_black"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintLeft_toRightOf="@+id/avtar"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:text="后端架构师技术图谱(https://github.com/xingshaocheng/architect-awesome)"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/lang_color"
+            android:layout_width="@dimen/margin_16dp"
+            android:layout_height="@dimen/margin_16dp"
+            android:layout_marginStart="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:background="@color/soft_red"
+            app:layout_constraintLeft_toRightOf="@+id/avtar"
+            app:layout_constraintTop_toBottomOf="@+id/desc_with_url"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/lang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:textColor="@color/grey_black"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintLeft_toRightOf="@+id/lang_color"
+            app:layout_constraintTop_toBottomOf="@+id/desc_with_url"
+            tools:text="C++"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="@dimen/margin_16dp"
+            android:layout_height="@dimen/margin_16dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:src="@drawable/star_yellow_16"
+            app:layout_constraintLeft_toRightOf="@+id/lang"
+            app:layout_constraintTop_toBottomOf="@+id/desc_with_url"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/star_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:textColor="@color/grey_black"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintLeft_toRightOf="@+id/star"
+            app:layout_constraintTop_toBottomOf="@+id/desc_with_url"
+            tools:text="12,456"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/fork"
+            android:layout_width="@dimen/margin_16dp"
+            android:layout_height="@dimen/margin_16dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:src="@drawable/fork_black_16"
+            app:layout_constraintLeft_toRightOf="@+id/star_value"
+            app:layout_constraintTop_toBottomOf="@+id/desc_with_url"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/fork_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:textColor="@color/grey_black"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintLeft_toRightOf="@+id/fork"
+            app:layout_constraintTop_toBottomOf="@+id/desc_with_url"
+            tools:text="12,456"
+            tools:visibility="visible" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/thin_line"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:background="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lang_color" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/repogroupDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="desc_with_url,lang_color,lang,star,star_value,fork,fork_value" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
