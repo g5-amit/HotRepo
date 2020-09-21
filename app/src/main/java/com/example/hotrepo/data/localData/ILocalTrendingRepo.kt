@@ -1,6 +1,6 @@
-package com.example.hotrepo.data.local
+package com.example.hotrepo.data.localData
 
-import com.example.hotrepo.data.entity.TrendingRepoEntity
+import com.example.hotrepo.data.entities.TrendingRepoEntity
 import kotlinx.coroutines.flow.Flow
 
 /**

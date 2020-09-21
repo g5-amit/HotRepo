@@ -1,6 +1,6 @@
 package com.example.hotrepo.di
 
-import com.example.hotrepo.data.remote.RemoteApiService
+import com.example.hotrepo.data.remoteData.RemoteApiService
 import com.example.hotrepo.utility.Constants
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

@@ -7,7 +7,7 @@
     <data>
         <variable
             name="repoItem"
-            type="com.example.hotrepo.data.entity.TrendingRepoEntity" />
+            type="com.example.hotrepo.data.entities.TrendingRepoEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

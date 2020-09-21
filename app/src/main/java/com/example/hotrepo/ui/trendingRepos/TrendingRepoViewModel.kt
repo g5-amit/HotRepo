@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import com.example.hotrepo.data.entity.TrendingRepoEntity
+import com.example.hotrepo.data.entities.TrendingRepoEntity
 import com.example.hotrepo.data.networkWrapper.Resource
 import com.example.hotrepo.data.repository.TrendingRepository
 import com.example.hotrepo.utility.Constants

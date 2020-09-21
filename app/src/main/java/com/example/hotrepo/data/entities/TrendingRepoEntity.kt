@@ -1,4 +1,4 @@
-package com.example.hotrepo.data.entity
+package com.example.hotrepo.data.entities
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo

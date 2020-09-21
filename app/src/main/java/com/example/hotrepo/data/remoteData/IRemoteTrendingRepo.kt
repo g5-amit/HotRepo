@@ -1,6 +1,6 @@
-package com.example.hotrepo.data.remote
+package com.example.hotrepo.data.remoteData
 
-import com.example.hotrepo.data.entity.TrendingRepoEntity
+import com.example.hotrepo.data.entities.TrendingRepoEntity
 import com.example.hotrepo.data.networkWrapper.Resource
 
 interface IRemoteTrendingRepo {

@@ -1,4 +1,4 @@
-package com.example.hotrepo.data.remote
+package com.example.hotrepo.data.remoteData
 
 import com.example.hotrepo.data.pojo.GitHubRepo
 import com.example.hotrepo.utility.Constants

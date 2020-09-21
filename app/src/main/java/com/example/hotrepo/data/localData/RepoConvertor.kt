@@ -1,4 +1,4 @@
-package com.example.hotrepo.data.local
+package com.example.hotrepo.data.localData
 
 import androidx.room.TypeConverter
 import com.example.hotrepo.data.pojo.BuiltBy

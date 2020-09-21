@@ -1,6 +1,6 @@
 package com.example.hotrepo.ui.trendingRepos
 
-import com.example.hotrepo.data.entity.TrendingRepoEntity
+import com.example.hotrepo.data.entities.TrendingRepoEntity
 import com.example.hotrepo.data.pojo.BuiltBy
 
 /**
