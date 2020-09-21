@@ -21,5 +21,6 @@
     <color name="light_grey">#DCDCDC</color>
     <color name="color_green">#09ac63</color>
     <color name="home_background">#f3f7f8</color>
+    <color name="header_text">#25282B</color>
 
 </resources>

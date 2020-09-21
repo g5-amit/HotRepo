@@ -20,8 +20,9 @@ data class TrendingRepoEntity(
     var stars: Int?,
     var forks: Int?,
     var currentPeriodStars: Int?,
-    var language: String?,
-    var languageColor: String?,
+
+    var language: String? ,
+    var languageColor: String? ,
 
     @PrimaryKey
     @NonNull
@@ -29,12 +30,12 @@ data class TrendingRepoEntity(
     var url: String,
 
     var builtBy: List<BuiltBy>?,
-    var timeStamp: Long?
-
+    var timeStamp: Long = 0L
 ) {
+
     companion object {
         fun parseToRepoDBData(gitHubRepo: GitHubRepo): TrendingRepoEntity {
-            gitHubRepo?.let {
+            gitHubRepo.let {
                 return TrendingRepoEntity(
                     gitHubRepo.author,
                     gitHubRepo.name,

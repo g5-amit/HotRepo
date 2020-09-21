@@ -8,41 +8,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/header_text"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_26dp"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:layout_marginEnd="@dimen/margin_16dp"
-        android:textColor="@color/grey_black"
-        android:textSize="@dimen/textSize_26sp"
-        android:fontFamily="sans-serif-black"
-        app:layout_constraintWidth_default="wrap"
+        android:background="@color/colorWhite"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/trending" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/view_more"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/more_black_24"
-        android:layout_marginTop="@dimen/margin_36dp"
-        android:layout_marginEnd="@dimen/margin_16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@tools:sample/cities"
-        tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trending"
+            android:textColor="@color/header_text"
+            android:textSize="21sp"
+            android:layout_gravity ="center"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black">
+        </TextView>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <View
         android:id="@+id/thin_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/thin_line"
-        android:layout_marginTop="@dimen/margin_26dp"
         android:background="@color/light_grey"
-        app:layout_constraintTop_toBottomOf="@+id/header_text" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"

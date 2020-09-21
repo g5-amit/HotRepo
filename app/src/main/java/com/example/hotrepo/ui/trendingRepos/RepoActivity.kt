@@ -8,7 +8,6 @@ import com.example.hotrepo.ui.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-
 /**
  * Main Activity which is the container for Trending Repo Fragment List
  * */
@@ -19,7 +18,7 @@ class RepoActivity : BaseActivity() {
     @Inject lateinit var navigator: AppNavigator
 
     override fun getLayoutRes(): Int {
-        return R.layout.repo_activity;
+        return R.layout.repo_activity
     }
 
     override fun initView(savedInstanceState: Bundle?) {

@@ -7,4 +7,6 @@
     <string name="please_try_to_create_one_trending_repo_of_yours">Please try to create one trending repo of yours</string>
     <string name="trending">Trending</string>
     <string name="offline_data">No Inetrnet, Fetching avialable offline data..</string>
+    <string name="sort_by_stars">Sort By Stars</string>
+    <string name="sort_by_name">Sort By Name</string>
 </resources>

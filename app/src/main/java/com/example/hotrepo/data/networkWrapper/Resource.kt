@@ -1,4 +1,4 @@
-package com.example.hotrepo.data.remote.networkWrapper
+package com.example.hotrepo.data.networkWrapper
 
 /**
  * Resource class will wrap the data with Network Status and Messages

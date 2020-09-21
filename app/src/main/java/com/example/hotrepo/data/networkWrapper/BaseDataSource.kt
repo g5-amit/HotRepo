@@ -1,4 +1,4 @@
-package com.example.hotrepo.data.remote.networkWrapper
+package com.example.hotrepo.data.networkWrapper
 
 import android.content.Context
 import android.util.Log
