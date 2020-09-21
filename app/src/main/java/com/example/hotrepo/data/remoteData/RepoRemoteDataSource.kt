@@ -1,9 +1,10 @@
 package com.example.hotrepo.data.remoteData
 
 import android.content.Context
-import com.example.hotrepo.data.entities.TrendingRepoEntity
-import com.example.hotrepo.data.networkWrapper.BaseDataSource
-import com.example.hotrepo.data.networkWrapper.Resource
+import com.example.hotrepo.data.network.apiService.RemoteApiService
+import com.example.hotrepo.data.room.entity.TrendingRepoEntity
+import com.example.hotrepo.data.network.utils.BaseDataSource
+import com.example.hotrepo.data.network.utils.Resource
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 

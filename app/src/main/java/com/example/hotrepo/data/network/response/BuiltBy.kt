@@ -1,4 +1,4 @@
-package com.example.hotrepo.data.pojo
+package com.example.hotrepo.data.network.response
 
 data class BuiltBy (
     val href : String,

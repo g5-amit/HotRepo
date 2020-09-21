@@ -1,7 +1,7 @@
 package com.example.hotrepo.ui.trendingRepos
 
-import com.example.hotrepo.data.entities.TrendingRepoEntity
-import com.example.hotrepo.data.pojo.BuiltBy
+import com.example.hotrepo.data.room.entity.TrendingRepoEntity
+import com.example.hotrepo.data.network.response.BuiltBy
 
 /**
  * Responsible for UI item view if in future UI changes we can change this class and DB Entity class will be intact

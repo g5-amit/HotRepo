@@ -1,4 +1,4 @@
-package com.example.hotrepo.data.networkWrapper
+package com.example.hotrepo.data.network.utils
 
 suspend fun <T> performNetworkOperation(
     networkCall: suspend () -> Resource<T>,
@@ -7,14 +7,14 @@ suspend fun <T> performNetworkOperation(
 
     val responseStatus = networkCall.invoke()
     return when(responseStatus.status){
-        Resource.Status.SUCCESS-> {
+        Resource.Status.SUCCESS -> {
             (responseStatus.data)?.let { saveCallResult(responseStatus.data) }
             Resource.success(responseStatus.data)
         }
-        Resource.Status.ERROR->{
-            Resource.error(responseStatus.message?:"")
+        Resource.Status.ERROR ->{
+            Resource.error(responseStatus.message ?: "")
         }
-        Resource.Status.OFFLINE->{
+        Resource.Status.OFFLINE ->{
             Resource.offline()
         }
     }

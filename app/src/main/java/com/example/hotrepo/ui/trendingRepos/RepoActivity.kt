@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.hotrepo.R
 import com.example.hotrepo.navigator.AppNavigator
 import com.example.hotrepo.navigator.Screens
-import com.example.hotrepo.ui.BaseActivity
+import com.example.hotrepo.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

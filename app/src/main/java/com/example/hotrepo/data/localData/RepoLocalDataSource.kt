@@ -1,6 +1,7 @@
 package com.example.hotrepo.data.localData
 
-import com.example.hotrepo.data.entities.TrendingRepoEntity
+import com.example.hotrepo.data.room.entity.TrendingRepoEntity
+import com.example.hotrepo.data.room.dao.TrendingRepoDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.example.hotrepo.data.localData
+package com.example.hotrepo.data.room.db
 
 
 import android.content.Context
@@ -6,7 +6,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.hotrepo.data.entities.TrendingRepoEntity
+import com.example.hotrepo.data.room.entity.TrendingRepoEntity
+import com.example.hotrepo.data.room.entity.RepoConverter
+import com.example.hotrepo.data.room.dao.TrendingRepoDao
 import com.example.hotrepo.utility.Constants
 
 /**

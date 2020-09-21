@@ -1,7 +1,7 @@
 package com.example.hotrepo.di
 
 import android.content.Context
-import com.example.hotrepo.data.localData.RepoDatabase
+import com.example.hotrepo.data.room.db.RepoDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

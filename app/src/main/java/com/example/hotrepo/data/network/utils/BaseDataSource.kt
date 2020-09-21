@@ -1,8 +1,7 @@
-package com.example.hotrepo.data.networkWrapper
+package com.example.hotrepo.data.network.utils
 
 import android.content.Context
 import android.util.Log
-import com.example.hotrepo.utility.NetworkUtils
 import dagger.hilt.android.qualifiers.ApplicationContext
 import retrofit2.Response
 
@@ -13,7 +12,7 @@ abstract class BaseDataSource(@ApplicationContext val appContext: Context) {
 
     protected suspend fun <T> getResult(call: suspend () -> Response<T>): Resource<T> {
         try {
-            if(!(NetworkUtils.hasNetworkAvailable(appContext))){
+            if(!(NetworkConnectivityUtil.hasNetworkAvailable(appContext))){
                 return Resource.offline()
             }
             val response = call()

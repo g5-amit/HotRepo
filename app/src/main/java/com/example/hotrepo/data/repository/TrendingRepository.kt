@@ -1,10 +1,10 @@
 package com.example.hotrepo.data.repository
 
-import com.example.hotrepo.data.entities.TrendingRepoEntity
+import com.example.hotrepo.data.room.entity.TrendingRepoEntity
 import com.example.hotrepo.data.localData.RepoLocalDataSource
 import com.example.hotrepo.data.remoteData.RepoRemoteDataSource
-import com.example.hotrepo.data.networkWrapper.Resource
-import com.example.hotrepo.data.networkWrapper.performNetworkOperation
+import com.example.hotrepo.data.network.utils.Resource
+import com.example.hotrepo.data.network.utils.performNetworkOperation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn

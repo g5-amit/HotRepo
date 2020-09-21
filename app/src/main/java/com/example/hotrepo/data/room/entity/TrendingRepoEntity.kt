@@ -1,11 +1,11 @@
-package com.example.hotrepo.data.entities
+package com.example.hotrepo.data.room.entity
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.hotrepo.data.pojo.BuiltBy
-import com.example.hotrepo.data.pojo.GitHubRepo
+import com.example.hotrepo.data.network.response.BuiltBy
+import com.example.hotrepo.data.network.response.GitHubRepo
 
 /**
  * Table for the Trending repo List , We keep this table from Pojo so that if there is any change in api response signature,
@@ -54,3 +54,4 @@ data class TrendingRepoEntity(
         }
     }
 }
+

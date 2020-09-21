@@ -1,16 +1,17 @@
-package com.example.hotrepo.utility
+package com.example.hotrepo.data.network.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 
-object NetworkUtils {
+object NetworkConnectivityUtil {
 
     /**
      * From Api 29 , Network capabilities api provide info about connectivity
      * New Api is supporting from Android M and above
      */
+    @Suppress("DEPRECATION")
     fun hasNetworkAvailable(context: Context): Boolean {
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

@@ -1,7 +1,7 @@
-package com.example.hotrepo.data.localData
+package com.example.hotrepo.data.room.entity
 
 import androidx.room.TypeConverter
-import com.example.hotrepo.data.pojo.BuiltBy
+import com.example.hotrepo.data.network.response.BuiltBy
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type

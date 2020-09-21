@@ -1,4 +1,4 @@
-package com.example.hotrepo.ui
+package com.example.hotrepo.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

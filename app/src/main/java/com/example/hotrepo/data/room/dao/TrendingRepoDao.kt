@@ -1,7 +1,7 @@
-package com.example.hotrepo.data.localData
+package com.example.hotrepo.data.room.dao
 
 import androidx.room.*
-import com.example.hotrepo.data.entities.TrendingRepoEntity
+import com.example.hotrepo.data.room.entity.TrendingRepoEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 
@@ -41,7 +41,7 @@ interface TrendingRepoDao {
     @Transaction
     suspend fun deleteAndSaveRepoList(trendingRepoEntities: List<TrendingRepoEntity>){
         deleteAllTrendingRepo()
-        trendingRepoEntities?.let { insertAllRepo(trendingRepoEntities) }
+        insertAllRepo(trendingRepoEntities)
     }
 
     @Query("DELETE FROM TrendingRepoEntity WHERE repoUrl = :url")

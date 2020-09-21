@@ -1,6 +1,6 @@
-package com.example.hotrepo.data.remoteData
+package com.example.hotrepo.data.network.apiService
 
-import com.example.hotrepo.data.pojo.GitHubRepo
+import com.example.hotrepo.data.network.response.GitHubRepo
 import com.example.hotrepo.utility.Constants
 import retrofit2.Response
 import retrofit2.http.GET
