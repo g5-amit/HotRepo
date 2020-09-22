@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/star"
+        android:id="@+id/menu_star"
         android:title="@string/sort_by_stars"
         app:showAsAction="never|withText" />
     <item
-        android:id="@+id/name"
+        android:id="@+id/menu_name"
         android:title="@string/sort_by_name"
         app:showAsAction="never|withText" />
 

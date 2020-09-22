@@ -159,11 +159,11 @@ class RepoFragment : BaseFragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.star -> {
+            R.id.menu_star -> {
                 viewModel.setSortOrder(SortUtils.Sort.STAR)
                 true
             }
-            R.id.name -> {
+            R.id.menu_name -> {
                 viewModel.setSortOrder(SortUtils.Sort.NAME)
                 true
             }

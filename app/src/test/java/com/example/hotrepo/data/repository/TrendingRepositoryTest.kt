@@ -38,7 +38,6 @@ class TrendingRepositoryTest {
 
     private val remoteRepos = listOf(tempRepo1, tempRepo2).sortedBy { it.stars }
     private val localRepos = listOf(tempRepo3).sortedBy { it.stars }
-    private val newTasks = listOf(tempRepo3).sortedBy { it.stars }
     private lateinit var repoRemoteDataSource: FakeDataSource
     private lateinit var repoLocalDataSource: FakeDataSource
 
