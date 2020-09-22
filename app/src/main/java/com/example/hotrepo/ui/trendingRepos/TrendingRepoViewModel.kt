@@ -1,12 +1,11 @@
 package com.example.hotrepo.ui.trendingRepos
 
 import android.util.Log
-import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import com.example.hotrepo.data.room.entity.TrendingRepoEntity
 import com.example.hotrepo.data.network.utils.Resource
+import com.example.hotrepo.data.repository.BaseRepoRepository
 import com.example.hotrepo.data.repository.TrendingRepository
+import com.example.hotrepo.data.room.entity.TrendingRepoEntity
 import com.example.hotrepo.utility.Constants
 import com.example.hotrepo.utility.SortUtils
 import kotlinx.coroutines.Dispatchers
@@ -20,9 +19,8 @@ import kotlinx.coroutines.withContext
  * Interact between UI layer and Data Layer
  * Update UI component with the help of LifeCycle aware Component as Live data
  * */
-class TrendingRepoViewModel @ViewModelInject constructor(
-    private val trendingRepository: TrendingRepository,
-    @Assisted private val savedStateHandle: SavedStateHandle
+class TrendingRepoViewModel (
+    private val trendingRepository: BaseRepoRepository
 ) : ViewModel() {
 
     /**
@@ -87,17 +85,13 @@ class TrendingRepoViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             trendingRepository.getTrendingRepoList()
                 .onStart {
-                    Log.d("Amit", "OnStart")
                     _spinner.value = true
                     _hideZeroStateView.value = true
                 }
                 .onEach {trendingRepoList->
-                    Log.d("Amit", "OnEach")
                     if(trendingRepoList.isEmpty() || isStaleData(trendingRepoList[0])){
-                        Log.d("Amit", "emptyStale")
                         doRefreshData(trendingRepoList.isEmpty())
                     }else {
-                        Log.d("Amit", "sanitize")
                         sanitizeItemsForUI(trendingRepoList)
                     }
                 }
@@ -105,7 +99,6 @@ class TrendingRepoViewModel @ViewModelInject constructor(
                 // It works upstream and downstream as well
                 // can be used for removing resources after flow is completed
                 .onCompletion { cause: Throwable? ->
-                    Log.d("Amit", "OnComplete")
                     if(cause!=null)Log.d("Flow", "Exception")
                 }
                 // catch operator is applied till all upStream operator to handle exception,
@@ -188,4 +181,12 @@ class TrendingRepoViewModel @ViewModelInject constructor(
         }
 
     }
+}
+
+@Suppress("UNCHECKED_CAST")
+class TrendingViewModelFactory (
+    private val trendingRepository: TrendingRepository
+) : ViewModelProvider.NewInstanceFactory() {
+    override fun <T : ViewModel> create(modelClass: Class<T>) =
+        (TrendingRepoViewModel(trendingRepository) as T)
 }

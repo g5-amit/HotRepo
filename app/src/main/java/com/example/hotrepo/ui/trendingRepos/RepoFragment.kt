@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.hotrepo.R
 import com.example.hotrepo.base.BaseFragment
+import com.example.hotrepo.data.repository.TrendingRepository
 import com.example.hotrepo.utility.SortUtils
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,8 +36,17 @@ class RepoFragment : BaseFragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
-    @Inject lateinit var repoAdapter: TrendingRepoAdapter
-    private val viewModel: TrendingRepoViewModel by viewModels()
+    @Inject  lateinit var repoAdapter: TrendingRepoAdapter
+
+    @Inject  lateinit var trendingRepository: TrendingRepository
+
+    /**
+     * Need to pass repository Explicitly to support FakeRepository for test cases
+     * means Repository Dependency should be injected from outside to view model
+     * */
+    private val viewModel by viewModels<TrendingRepoViewModel> {
+        TrendingViewModelFactory(trendingRepository)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -1,4 +1,4 @@
-package com.example.hotrepo.di
+package com.example.hotrepo.di.module
 
 import com.example.hotrepo.data.network.apiService.RemoteApiService
 import com.example.hotrepo.utility.Constants

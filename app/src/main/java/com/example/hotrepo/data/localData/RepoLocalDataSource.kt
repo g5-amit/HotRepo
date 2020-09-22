@@ -1,5 +1,7 @@
 package com.example.hotrepo.data.localData
 
+import com.example.hotrepo.data.network.utils.Resource
+import com.example.hotrepo.data.dataSource.RepoDataSource
 import com.example.hotrepo.data.room.entity.TrendingRepoEntity
 import com.example.hotrepo.data.room.dao.TrendingRepoDao
 import kotlinx.coroutines.flow.Flow
@@ -10,9 +12,9 @@ import javax.inject.Inject
  * All UI data is provided by Local Source from Room DB
  * It helps for the source of Truth of data consistency on UI
  */
-class RepoLocalDataSource @Inject constructor(private val repoDao: TrendingRepoDao) : ILocalTrendingRepo {
+class RepoLocalDataSource @Inject constructor(private val repoDao: TrendingRepoDao) : RepoDataSource {
 
-    override suspend fun getTrendingRepo(repoUrl: String): Flow<TrendingRepoEntity> {
+    override suspend fun getTrendingRepo(repoUrl: String): Flow<TrendingRepoEntity?> {
         return repoDao.getRepoDistinctUntilChanged(repoUrl)
     }
 
@@ -20,7 +22,7 @@ class RepoLocalDataSource @Inject constructor(private val repoDao: TrendingRepoD
         return repoDao.getAllTrendingRepo()
     }
 
-    override suspend fun saveTrendingRepoList(trendingRepoEntityList: List<TrendingRepoEntity?>?) {
+    override suspend fun saveTrendingRepoList(trendingRepoEntityList: List<TrendingRepoEntity>) {
         repoDao.insertAllRepo(trendingRepoEntityList)
     }
 
@@ -38,6 +40,11 @@ class RepoLocalDataSource @Inject constructor(private val repoDao: TrendingRepoD
 
     override suspend fun saveAndDeleteRepoList(trendingRepoEntityList: List<TrendingRepoEntity>) {
         repoDao.deleteAndSaveRepoList(trendingRepoEntityList)
+    }
+
+
+    override suspend fun getNetworkRepoList(): Resource<List<TrendingRepoEntity>> {
+        TODO("Not yet implemented")
     }
 
 }

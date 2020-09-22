@@ -1,4 +1,4 @@
-package com.example.hotrepo.di
+package com.example.hotrepo.di.module
 
 import com.example.hotrepo.navigator.AppNavigator
 import com.example.hotrepo.navigator.AppNavigatorImpl

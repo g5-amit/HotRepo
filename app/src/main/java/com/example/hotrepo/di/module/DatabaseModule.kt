@@ -1,4 +1,4 @@
-package com.example.hotrepo.di
+package com.example.hotrepo.di.module
 
 import android.content.Context
 import com.example.hotrepo.data.room.db.RepoDatabase
