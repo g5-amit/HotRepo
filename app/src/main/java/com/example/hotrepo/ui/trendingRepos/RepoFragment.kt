@@ -2,21 +2,16 @@ package com.example.hotrepo.ui.trendingRepos
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.hotrepo.R
 import com.example.hotrepo.base.BaseFragment
 import com.example.hotrepo.data.repository.TrendingRepository
+import com.example.hotrepo.databinding.RepoFragBinding
 import com.example.hotrepo.utility.SortUtils
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 /**
@@ -25,16 +20,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class RepoFragment : BaseFragment() {
 
-    private lateinit var toolbarView: Toolbar
-    private lateinit var layoutError: ConstraintLayout
-    private lateinit var layoutEmpty: ConstraintLayout
-    private lateinit var layoutLoading: ConstraintLayout
-    private lateinit var emptyRetry: Button
-    private lateinit var errorRetry: Button
-
-    private lateinit var root: View
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var binding: RepoFragBinding
 
     @Inject  lateinit var repoAdapter: TrendingRepoAdapter
 
@@ -53,34 +39,28 @@ class RepoFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        root = inflater.inflate(R.layout.repo_frag, container, false)
-        return root
+        binding = RepoFragBinding.inflate(inflater, container, false)
+        binding.apply {
+            lifecycleOwner = lifecycleOwner
+            viewModel = viewModel
+        }
+        return binding.root
     }
 
     override fun onViewCreated(root: View, savedInstanceState: Bundle?) {
-        toolbarView = root.findViewById(R.id.toolbar)
-        (activity as AppCompatActivity).setSupportActionBar(toolbarView)
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
-        layoutError = root.findViewById(R.id.layout_error)
-        layoutEmpty = root.findViewById(R.id.layout_empty)
-        emptyRetry = layoutEmpty.findViewById(R.id.empty_retry)
-        errorRetry = layoutError.findViewById(R.id.error_retry)
-        layoutLoading = root.findViewById(R.id.layout_loading)
-        recyclerView = root.findViewById(R.id.recycler_view)
-        swipeRefreshLayout = root.findViewById(R.id.swipeRefreshLayout)
-        swipeRefreshLayout.setOnRefreshListener(this::swipeRefresh)
-        recyclerView.layoutManager= LinearLayoutManager(requireContext())
-        recyclerView.adapter = repoAdapter
-
-        emptyRetry.setOnClickListener {
-            fetchTrendingRepo()
-        }
-
-        errorRetry.setOnClickListener {
-            fetchTrendingRepo()
-        }
-
+        binding.swipeRefreshLayout.setOnRefreshListener(this::swipeRefresh)
+        binding.recyclerView.layoutManager= LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = repoAdapter
         setUpObservers()
+        binding.layoutEmpty.emptyRetry.setOnClickListener {
+            fetchTrendingRepo()
+        }
+
+        binding.layoutError.errorRetry.setOnClickListener {
+            fetchTrendingRepo()
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -109,19 +89,17 @@ class RepoFragment : BaseFragment() {
         })
 
         viewModel.swipeLoader.observe(viewLifecycleOwner, {
-            swipeRefreshLayout.isRefreshing = false
+            binding.swipeRefreshLayout.isRefreshing = false
         })
 
         viewModel.snackbar.observe(viewLifecycleOwner, {
             val msg: CharSequence = getString(R.string.offline_data)
-            Snackbar.make(root, msg, Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(binding.root, msg, Snackbar.LENGTH_SHORT).show()
         })
 
     }
-
-    @ExperimentalCoroutinesApi
     private fun fetchTrendingRepo(){
-        viewModel.getRepoList()
+        viewModel.getTrendingRepoList()
     }
 
     private fun swipeRefresh() {
@@ -136,21 +114,21 @@ class RepoFragment : BaseFragment() {
     }
 
     private fun showHideLoader(isVisible: Boolean) {
-        if (isVisible) layoutLoading.visibility = View.VISIBLE
-        else layoutLoading.visibility = View.GONE
+        if (isVisible) binding.layoutLoading.visibility = View.VISIBLE
+        else binding.layoutLoading.visibility = View.GONE
     }
 
     private fun showEmptyView() {
-        layoutEmpty.visibility= View.VISIBLE
+        binding.layoutEmpty.root.visibility= View.VISIBLE
     }
 
     private fun showError() {
-        layoutError.visibility = View.VISIBLE
+        binding.layoutError.root.visibility = View.VISIBLE
     }
 
     private fun hideZeroStateViews() {
-        layoutError.visibility = View.GONE
-        layoutEmpty.visibility = View.GONE
+        binding.layoutEmpty.root.visibility= View.GONE
+        binding.layoutError.root.visibility = View.GONE
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

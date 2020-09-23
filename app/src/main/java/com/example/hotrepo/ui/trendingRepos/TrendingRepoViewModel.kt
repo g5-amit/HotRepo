@@ -38,7 +38,7 @@ class TrendingRepoViewModel (
     /**
      * Show a loading spinner if true
      */
-    private val _spinner = MutableLiveData(false)
+    val _spinner = MutableLiveData<Boolean>()
     val spinner: LiveData<Boolean>
         get() = _spinner
 
@@ -80,8 +80,7 @@ class TrendingRepoViewModel (
     /**
      * Logic to make UI reactive using LiveData after fetching data
      */
-    @ExperimentalCoroutinesApi
-    fun getRepoList() {
+    fun getTrendingRepoList() {
         viewModelScope.launch {
             trendingRepository.getTrendingRepoList()
                 .onStart {
@@ -177,7 +176,7 @@ class TrendingRepoViewModel (
     fun setSortOrder(order: SortUtils.Sort){
         if(sortOrder != order){
             sortOrder = order
-            getRepoList()
+            getTrendingRepoList()
         }
 
     }

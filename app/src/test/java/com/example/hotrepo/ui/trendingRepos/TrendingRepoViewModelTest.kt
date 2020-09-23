@@ -66,7 +66,7 @@ class TrendingRepoViewModelTest {
     @Test
     fun getRepoList_observe_when_open_ReposList(){
 
-        val repos = trendingRepoViewModel.getRepoList()
+        val repos = trendingRepoViewModel.getTrendingRepoList()
 
         // Then the new Repo List data is triggered via LiveData
         val value = trendingRepoViewModel.repoList.getOrAwaitValue()
