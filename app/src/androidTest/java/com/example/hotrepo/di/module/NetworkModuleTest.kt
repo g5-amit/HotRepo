@@ -1,7 +1,6 @@
 package com.example.hotrepo.di.module
 
 import com.example.hotrepo.data.network.apiService.RemoteApiService
-import com.example.hotrepo.utility.Constants
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -14,13 +13,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-
 /**
- * All Network Api dependency will be injected from Network Module
- */
+ * Test Module used for getting retrofit client for MockServer configuration and get mock response
+ * */
 @Module
 @InstallIn(ApplicationComponent::class)
-open class NetworkModule {
+class NetworkModuleTest {
 
     private val READ_TIMEOUT = 15L
     private val WRITE_TIMEOUT = 60L
@@ -28,23 +26,20 @@ open class NetworkModule {
 
     @Singleton
     @Provides
-    open fun provideRetrofit(gson: Gson, client:OkHttpClient) : Retrofit = Retrofit.Builder()
-        .baseUrl(Constants.API_BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create(gson))
-        .client(client)
-        .build()
+    fun giveRetrofitAPIService(gson: Gson, client: OkHttpClient): RemoteApiService =
+        Retrofit.Builder()
+            .baseUrl("http://localhost:8080/")
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(client)
+            .build()
+            .create(RemoteApiService::class.java)
 
     @Provides
     fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
-    fun provideRemoteService(retrofit: Retrofit): RemoteApiService = retrofit.create(
-        RemoteApiService::class.java
-    )
-
-    @Provides
     @Singleton
-    open fun getOkHttpClient(): OkHttpClient {
+    fun getOkHttpClient(): OkHttpClient {
         val clientBuilder = OkHttpClient.Builder()
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
