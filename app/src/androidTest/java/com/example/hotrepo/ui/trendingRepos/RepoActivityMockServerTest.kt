@@ -61,6 +61,10 @@ class RepoActivityMockServerTest {
         Espresso.onView(ViewMatchers.withText("TITLE1")).check(ViewAssertions.doesNotExist())
     }
 
+    /**
+     * To check this test case Please clear App data from app settings
+     * Otherwise DB list will be inflated and Api response does not matter
+     * */
     @Test
     fun unHappyFailureTestCase() {
         mockServer.dispatcher = object : Dispatcher() {

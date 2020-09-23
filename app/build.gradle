@@ -131,5 +131,6 @@ dependencies {
     androidTestImplementation 'io.mockk:mockk-android:1.10.0'
     testImplementation "android.arch.core:core-testing:1.1.1"
     androidTestImplementation 'com.squareup.okhttp3:mockwebserver:4.6.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
 
 }
